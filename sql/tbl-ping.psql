@@ -1,0 +1,11 @@
+CREATE TABLE "ping" (
+	rid BIGSERIAL NOT NULL PRIMARY KEY,
+
+	"l3dst" INET NOT NULL,
+	"l3proto" INT NOT NULL,
+	"l4id_a" INT,
+	"l4id_b" INT,
+	"dt" DOUBLE PRECISION NOT NULL,
+
+	"ts" TIMESTAMP NOT NULL DEFAULT(timezone('utc', now()))
+);

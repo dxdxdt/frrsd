@@ -1,0 +1,22 @@
+CREATE TABLE "bgp-unicast" (
+	"rid" BIGSERIAL NOT NULL PRIMARY KEY,
+
+	"ipv" ipv NOT NULL,
+	"routerId" INET,
+	"as" INT,
+	"vrfId" INT,
+	"vrfName" VARCHAR(255),
+	"tableVersion" BIGINT,
+	"ribCount" BIGINT,
+	"ribMemory" BIGINT,
+	"peerCount" INT,
+	"peerMemory" BIGINT,
+	"peerGroupCount" INT,
+	"peerGroupMemory" BIGINT,
+	"failedPeers" INT,
+	"displayedPeers" INT,
+	"totalPeers" INT,
+	"dynamicPeers" INT,
+
+	"ts" TIMESTAMP NOT NULL DEFAULT(timezone('utc', now()))
+);

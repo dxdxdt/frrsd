@@ -1,0 +1,12 @@
+#!/sbin/openrc-run
+command="/usr/local/bin/frrsdd"
+command_background=true
+command_user="frrsd:frrsd"
+pidfile="/run/frrsd.pid"
+
+depend () {
+	need frr
+	need postgresql
+	after frr
+	after postgresql
+}

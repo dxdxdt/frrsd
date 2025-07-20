@@ -1,0 +1,27 @@
+CREATE TABLE "bgp-peers" (
+	"rid" BIGSERIAL NOT NULL PRIMARY KEY,
+	"parent" BIGSERIAL NOT NULL,
+
+	"peer" INET NOT NULL,
+	"softwareVersion" VARCHAR(255),
+	"remoteAs" INT,
+	"localAs" INT,
+	"version" INT,
+	"msgRcvd" BIGINT,
+	"msgSent" BIGINT,
+	"tableVersion" BIGINT,
+	"outq" BIGINT,
+	"inq" BIGINT,
+	"peerUptime" VARCHAR(255),
+	"peerUptimeMsec" BIGINT,
+	"peerUptimeEstablishedEpoch" BIGINT,
+	"pfxRcd" BIGINT,
+	"pfxSnt" BIGINT,
+	"state" VARCHAR(255),
+	"peerState" VARCHAR(255),
+	"connectionsEstablished" BIGINT,
+	"connectionsDropped" BIGINT,
+	"idType" VARCHAR(255),
+
+	FOREIGN KEY ("parent") REFERENCES "bgp-unicast"("rid") ON DELETE CASCADE
+);
